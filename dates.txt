@@ -1,0 +1,49 @@
+Pasos
+
+1. Intalacion del framework Express
+
+date important: Express es: es un marco de aplicaciones web back-end para crear API RESTful con Node.js, lanzado como software gratuito y de código abierto bajo la licencia MIT. Está diseñado para crear aplicaciones web y API. Se le ha llamado el marco de servidor estándar de facto para Node.js.
+
+a. npm init
+b. npm install express
+c. URL: https://expressjs.com/en/starter/installing.html
+
+2. Intalacion de yarn
+
+date important: Yarn es un gestor de paquetes para tu código . Te permite usar y compartir código con otros desarrolladores de cualquier parte del mundo. Si viene de npm, que sepa que Yarn reemplaza el flujo de trabajo existente para el cliente de npm u otros gestores de paquetes sin dejar de ser compatibles con el registro de npm
+
+a. npm install --global yarn
+b ver version: yarn --version
+
+
+note: si a la hora de installar yarn aparece un error de polita de ejecucion del powerShell, vamos a ser los siguientes pasos:
+
+1. vamos al buscador de window y buscamos window powerShell y lo ejecutamos como admin
+2. luego de ejercutarlo como admi vamos a escribir los siguientes comandos:{
+    - Get-ExecutionPolicy //Restricted
+    -Set-ExecutionPolicy Unrestricted //presionamos si(s)
+    - y volvemos a ejecutar este: Get-ExecutionPolicy y nos aparecera Unrestricted
+}
+
+
+
+3. Intalacion de cors
+
+date important: Cors es un Intercambio de Recursos de Origen Cruzado (CORS) es una característica de seguridad del navegador que restringe las solicitudes HTTP de origen cruzado que se inician desde secuencias de comandos que se ejecutan en el navegador.
+
+a. yarn add cors
+
+
+
+4. Instalacion de sequelize
+
+date important: Sequelize es un ORM para Nodejs que nos permite manipular varias bases de datos SQL de una manera bastante sencilla, entre estas bases de datos podemos encontrar: mysql, sqlite, postgres, mssql.
+
+a. yarn add sequelize
+
+
+5. Intalacion de mysql2
+
+date important: MySQL es un sistema de administración de bases de datos relacionales. Es un software de código abierto desarrollado por Oracle. Se considera como la base de datos de código abierto más utilizada en el mundo.
+
+a. yarn add mysql2
