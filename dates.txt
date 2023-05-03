@@ -47,3 +47,20 @@ a. yarn add sequelize
 date important: MySQL es un sistema de administración de bases de datos relacionales. Es un software de código abierto desarrollado por Oracle. Se considera como la base de datos de código abierto más utilizada en el mundo.
 
 a. yarn add mysql2
+
+
+
+
+AVISO IMPORTANTE PARA CREAR UNA BASE DE DATOS CON EL CONTENEDOR DOKER Y MYSQL 
+
+https://platzi.com/tutoriales/1432-docker-2018/3268-como-crear-un-contenedor-con-docker-mysql-y-persistir-la-informacion/
+
+
+- Intalamos el Doker, en la misma url esta el link.
+
+
+
+
+
+como correr el server: nodemon src/app.js
+
