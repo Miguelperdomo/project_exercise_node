@@ -4,6 +4,10 @@ const { sequelize } = require("./config/product.model");
 // const cors = require('cors');
 const usua = require("./router/users");
 const { user } = require("./model/user");
+//account
+const acott = require("./router/accot");
+
+//port
 const app = express();
 const port = process.env.PORT || 3030;
 
@@ -14,6 +18,7 @@ app.use(express.json()); //recibir informacion
 const main = async () => {
   try {
     await sequelize.sync();
+    await app.use(user);
     console.log("established connection");
     app.listen(port, () => {
       console.log("--------------------- running server in the port", port);
@@ -28,6 +33,7 @@ main();
 app.use(bodyparse.json());
 
 app.use(usua);
+app.use(acott);
 
 // app.listen(port, () => {
 //     console.log("--------------------- running server in the port", port);

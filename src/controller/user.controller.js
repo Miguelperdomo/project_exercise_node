@@ -11,16 +11,8 @@ exports.getuser = async (req, res) => {
 
 exports.createuser = async (req, res) => {
   try {
-    const {
-      first_name,
-      last_name,
-      age,
-      email,
-      phone_number,
-      address,
-      checkk,
-      category,
-    } = req.body;
+    const { first_name, last_name, age, email, phone_number, address } =
+      req.body;
 
     const createuserr = await user.create({
       first_name,
@@ -29,8 +21,6 @@ exports.createuser = async (req, res) => {
       email,
       phone_number,
       address,
-      checkk,
-      category,
     });
 
     res.json(createuserr);
