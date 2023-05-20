@@ -1,24 +1,28 @@
 const { DataTypes } = require("sequelize");
-const { sequelize } = require("../config/product.model");
-const { user } = require("./user");
+const { sequelize } = require("../config/data.base");
+const { user } = require("./model.users");
 
 //const { user } = require("./user.js");
 
-exports.accot = sequelize.define(
+exports.account = sequelize.define(
   "accounts",
   {
     id_account: {
-      type: DataTypes.INTEGER(42),
+      type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: true,
     },
     balance: {
+      type: DataTypes.INTEGER(42),
+      allowNull: true,
+    },
+    balanceUsd: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     idUser: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: { model: user, key: "id_user" },
     },
     category: { type: DataTypes.STRING, allowNull: true },

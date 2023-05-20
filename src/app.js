@@ -1,24 +1,28 @@
 const express = require("express");
-const bodyparse = require("body-parser");
-const { sequelize } = require("./config/product.model");
+const bodyParse = require("body-parser");
+const { sequelize } = require("./config/data.base");
 // const cors = require('cors');
-const usua = require("./router/users");
-const { user } = require("./model/user");
+//user
+const userVariable = require("./router/router.users");
+//const { user } = require("./model/model.users");
 //account
-const acott = require("./router/accot");
+const accountVariable = require("./router/router.account");
+//transf
+const transferVariable = require("./router/router.transf");
+//const { transf } = require("./model/model.transf");
 
 //port
 const app = express();
 const port = process.env.PORT || 3030;
 
-// //midleware
-app.use(express.json()); //recibir informacion
-// app.use(cors()); //habilitar otras aplicaciones para realizar solicitudes a nuestra app
+// //middleware
+app.use(express.json()); //receive information
+// app.use(cors()); //enable other apps to make requests to our app
 
 const main = async () => {
   try {
     await sequelize.sync();
-    await app.use(user);
+    //await app.use(transf);
     console.log("established connection");
     app.listen(port, () => {
       console.log("--------------------- running server in the port", port);
@@ -30,10 +34,11 @@ const main = async () => {
 
 main();
 
-app.use(bodyparse.json());
+app.use(bodyParse.json());
 
-app.use(usua);
-app.use(acott);
+app.use(userVariable);
+app.use(accountVariable);
+app.use(transferVariable);
 
 // app.listen(port, () => {
 //     console.log("--------------------- running server in the port", port);

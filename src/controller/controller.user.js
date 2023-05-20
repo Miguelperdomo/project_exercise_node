@@ -1,20 +1,20 @@
-const { user } = require("../model/user");
+const { user } = require("../model/model.users");
 
-exports.getuser = async (req, res) => {
+exports.getUser = async (req, res) => {
   try {
-    const us = await user.findAll();
-    res.json(us);
+    const getUserData = await user.findAll();
+    res.json(getUserData);
   } catch (error) {
-    return res.status(500).json({ mensaje: error });
+    return res.status(500).json({ message: error });
   }
 };
 
-exports.createuser = async (req, res) => {
+exports.createUser = async (req, res) => {
   try {
     const { first_name, last_name, age, email, phone_number, address } =
       req.body;
 
-    const createuserr = await user.create({
+    const createdUser = await user.create({
       first_name,
       last_name,
       age,
@@ -23,25 +23,25 @@ exports.createuser = async (req, res) => {
       address,
     });
 
-    res.json(createuserr);
+    res.json(createdUser);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
 
-exports.updateuse = async (req, res) => {
+exports.updateUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const usupdate = await user.findOne({ where: { id_user: id } });
-    usupdate.set(req.body);
-    await usupdate.save();
-    res.json(usupdate);
+    const userUpdate = await user.findOne({ where: { id_user: id } });
+    userUpdate.set(req.body);
+    await userUpdate.save();
+    res.json(userUpdate);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
 
-exports.deleteuse = async (req, res) => {
+exports.deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
     await user.destroy({ where: { id_user: id } });
@@ -51,11 +51,11 @@ exports.deleteuse = async (req, res) => {
   }
 };
 
-exports.seachuse = async (req, res) => {
+exports.searchUser = async (req, res) => {
   try {
     const { id } = req.params;
-    const buscar = await user.findOne({ where: { id_user: id } });
-    res.json(buscar);
+    const search = await user.findOne({ where: { id_user: id } });
+    res.json(search);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
