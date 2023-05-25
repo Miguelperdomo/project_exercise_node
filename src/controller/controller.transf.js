@@ -34,11 +34,34 @@ exports.createTransf = async (req, res) => {
   }
 };
 
-// // Create a new transfer
-// const transfer = await transfer.create({
-//   sender: senderName,
-//   receiver: receiverName,
-//   amount: transferAmount,
-//   senderAccountId: senderAccountId,
-//   receiverAccountId: receiverAccountId,
-// });
+exports.updateTransf = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userUpdate = await transf.findOne({ where: { id_transfer: id } });
+    userUpdate.set(req.body);
+    await userUpdate.save();
+    res.json(userUpdate);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.deleteTransf = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await transf.destroy({ where: { id_transfer: id } });
+    res.sendStatus(204);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+exports.searchTransf = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const search = await transf.findOne({ where: { id_transfer: id } });
+    res.json(search);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};
